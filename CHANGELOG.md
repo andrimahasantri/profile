@@ -19,4 +19,10 @@ All notable changes to the "StarFunnel" theme will be documented in this file.
 
 -   First commit!
 
+  Yang butuh "menyimpan data dari pengunjung" dialihkan ke layanan eksternal (itu sebabnya ada banyak API key di
+  .env):
+  - Newsletter → Mailchimp
+  - Form kontak / email → Mailgun / Postmark
+  - Notifikasi → Slack
+
 
