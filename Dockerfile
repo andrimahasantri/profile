@@ -11,7 +11,9 @@ ENV SELFHOST=true
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build
+# Pastikan adapter Node benar-benar aktif: kalau SELFHOST/astro.config salah,
+# astro akan output ke .vercel/output (bukan dist) dan test ini gagal jelas.
+RUN npm run build && test -f dist/server/entry.mjs
 
 # ---- runtime ----
 FROM node:22-slim AS runtime
