@@ -36,8 +36,11 @@ sudo ufw allow 22 && sudo ufw allow 80 && sudo ufw allow 443 && sudo ufw enable
 
 | Host | Tipe | Nilai |
 |------|------|-------|
-| influencespeakpro.com     | A | 103.15.226.115 |
-| www.influencespeakpro.com | A | 103.15.226.115 |
+| influencespeakpro.com     | A     | 103.55.38.219 |
+| www.influencespeakpro.com | CNAME | influencespeakpro.com |
+
+> Pastikan TIDAK ada A record `@` ganda. Domain ini sempat punya record bawaan
+> `103.15.226.115` (server parkir cloudhost) yang membuat certbot gagal — hapus.
 
 > Pakai Cloudflare? Set **DNS only (abu-abu)** sampai cert terbit, atau mode **Full (strict)**. Jangan "Flexible".
 

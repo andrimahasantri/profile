@@ -1,7 +1,10 @@
 # syntax=docker/dockerfile:1
 
 # ---- build ----
-FROM node:22-alpine AS build
+# node:22-slim (Debian/glibc) cocok dengan optional deps native yang di-declare
+# project: @rollup/rollup-linux-x64-gnu & @img/sharp-linux-x64 (varian glibc,
+# bukan musl/Alpine).
+FROM node:22-slim AS build
 WORKDIR /app
 # SELFHOST memilih adapter Node standalone di astro.config.mjs
 ENV SELFHOST=true
@@ -11,7 +14,7 @@ COPY . .
 RUN npm run build
 
 # ---- runtime ----
-FROM node:22-alpine AS runtime
+FROM node:22-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production \
     HOST=0.0.0.0 \
