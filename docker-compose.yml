@@ -1,0 +1,19 @@
+services:
+  profile:
+    build: .
+    image: influencespeakpro-profile
+    container_name: profile
+    restart: unless-stopped
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      # Secret form kontak (Slack/webhook) ditaruh di .env (JANGAN di-commit).
+    env_file:
+      - path: .env
+        required: false
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true

@@ -14,8 +14,19 @@ import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import netlify from "@astrojs/netlify";
 import vercel from "@astrojs/vercel/serverless";
+import node from "@astrojs/node";
 
-const env = loadEnv("", process.cwd(), "NETLIFY");
+// Load all env vars so we can pick the deploy target.
+const env = loadEnv("", process.cwd(), "");
+
+// SELFHOST=true -> Node standalone server (Docker/VPS, form/SSR tetap jalan)
+// NETLIFY set   -> Netlify adapter
+// default       -> Vercel serverless adapter
+function getAdapter() {
+  if (env.SELFHOST) return node({ mode: "standalone" });
+  if (env.NETLIFY) return netlify();
+  return vercel();
+}
 
 const m2dxOptions = {
   exportComponents: true,
@@ -27,7 +38,7 @@ const m2dxOptions = {
 export default defineConfig({
   site: "https://starfunnel.unfolding.io",
   output: "hybrid",
-  adapter: env.NETLIFY ? netlify(): vercel(), // vercel() or netlify()
+  adapter: getAdapter(),
   integrations: [
     icon(),
     mdx({}),

@@ -1,0 +1,25 @@
+{
+	# Email untuk notifikasi Let's Encrypt (kadaluarsa, dll)
+	email zukfikorweb@gmail.com
+}
+
+# Redirect www -> non-www
+www.influencespeakpro.com {
+	redir https://influencespeakpro.com{uri} permanent
+}
+
+# Web profile (Astro SSR)
+influencespeakpro.com {
+	encode gzip zstd
+	reverse_proxy profile:4321
+}
+
+# ===== Nanti untuk LMS, tinggal buka komentar & deploy containernya =====
+# app.influencespeakpro.com {
+# 	encode gzip zstd
+# 	reverse_proxy lms-frontend:3000
+# }
+#
+# api.influencespeakpro.com {
+# 	reverse_proxy lms-backend:8080
+# }
