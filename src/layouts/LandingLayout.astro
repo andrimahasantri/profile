@@ -1,0 +1,66 @@
+---
+/**
+ * LandingLayout — layout TERISOLASI untuk landing page iklan.
+ *
+ * Sengaja TIDAK memakai BaseLayout (yang menyeret Header/nav, Footer, dialog,
+ * dan konfigurasi CMS). Tujuannya:
+ *  - Independen dari tema/CMS → aman direstyle per kampanye, tak ada menu.
+ *  - Ringan & statis → cepat untuk trafik iklan berbayar.
+ *  - Mobile-first terkunci → tampilan mobile identik walau dibuka di desktop
+ *    (konten dibungkus frame max-w di tengah).
+ */
+import "@fontsource-variable/dm-sans";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Khusus iklan: jangan diindeks mesin pencari -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body class="landing-body">
+    <!-- FRAME mobile-first: lebar dikunci, dipusatkan; di desktop tampak seperti mobile -->
+    <div class="landing-frame">
+      <slot />
+    </div>
+
+    <style is:global>
+      .landing-body {
+        margin: 0;
+        background: #03100c; /* area luar frame saat di desktop */
+        font-family: "DM Sans Variable", system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #e9fff6;
+      }
+      .landing-frame {
+        max-width: 480px;
+        margin-inline: auto;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        /* gradien hijau-teal sesuai contoh desain */
+        background:
+          radial-gradient(120% 60% at 50% 0%, #0e4d42 0%, #072e28 45%, #04201c 100%);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+      }
+      .landing-frame img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </body>
+</html>

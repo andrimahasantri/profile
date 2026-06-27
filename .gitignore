@@ -24,4 +24,4 @@ pnpm-debug.log
 .DS_Store
 
 # assets images
-assets/
+# assets/

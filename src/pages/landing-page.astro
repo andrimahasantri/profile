@@ -1,0 +1,361 @@
+---
+/**
+ * /landing-page — Landing page funnel STATIS untuk iklan (mobile-first).
+ *
+ * - Konten di-hardcode di sini (tidak via CMS/admin), agar independen & cepat.
+ * - prerender = true → HTML statis murni (ideal untuk trafik iklan).
+ * - Tidak didaftarkan ke menu/navigasi (berdiri sendiri).
+ * - Gambar memakai aset di /assets (silakan ganti file dgn nama sama nanti).
+ */
+export const prerender = true;
+
+import { Image } from "astro:assets";
+import LandingLayout from "../layouts/LandingLayout.astro";
+
+import imgSpeak from "../../assets/mark1.jpeg";
+import imgSpeakman from "../../assets/mark2.jpeg";
+import imgSpeakwoman from "../../assets/mark1.jpeg";
+import imgTwospeaks from "../../assets/mark2.jpeg";
+import imgSpeaking from "../../assets/mark1.jpeg";
+
+const WA = "https://wa.me/62895351352140"; // ganti ke nomor tim marketing
+
+const benefits = [
+  "Teknik membuka percakapan yang bikin calon klien penasaran",
+  "Formula presentasi yang menggiring ke keputusan beli",
+  "Cara menangani penolakan tanpa terdengar memaksa",
+  "Skrip closing siap pakai untuk produk/jasa apa pun",
+  "Membangun rasa percaya hanya dalam 5 menit pertama",
+];
+
+const basic = [
+  "Akses webinar Speak to Sell (live)",
+  "Modul slide presentasi",
+  "Grup diskusi peserta",
+];
+const premium = [
+  "Semua benefit Basic",
+  "Rekaman webinar selamanya",
+  "Template skrip closing (PDF)",
+  "Sesi tanya-jawab privat 1-on-1",
+  "Sertifikat keikutsertaan",
+];
+const clients = ["Brand A", "Brand B", "Brand C", "Brand D", "Brand E", "Brand F"];
+
+const faqs = [
+  {
+    q: "Apakah webinar ini cocok untuk pemula?",
+    a: "Sangat cocok. Materinya dirancang agar langsung bisa diterapkan, baik oleh pemula maupun profesional.",
+  },
+  {
+    q: "Saya sering gugup saat berbicara. Apakah bisa ikut?",
+    a: "Tentu. Webinar ini akan membekali Anda dengan struktur dan teknik komunikasi yang sistematis, bukan mengandalkan “bakat bicara”.",
+  },
+  {
+    q: "Apakah bisa diikuti bersama tim?",
+    a: "Sangat disarankan. Dengan satu bahasa dan strategi, tim akan lebih solid dan hasil penjualan lebih terukur.",
+  },
+  {
+    q: "Apakah tersedia rekaman webinar?",
+    a: "Ya, peserta akan mendapatkan akses replay webinar selama 7 hari.",
+  },
+  {
+    q: "Apakah ada sesi tanya jawab?",
+    a: "Ada. Di akhir sesi akan dibuka Q&A langsung bersama Coach Willy. Jadi Anda bisa bertanya langsung tentang tantangan sales yang Anda hadapi.",
+  },
+];
+---
+
+<LandingLayout
+  title="Webinar Speak to Sell — Tingkatkan Closing Rate"
+  description="Webinar intensif untuk meningkatkan closing rate lewat teknik komunikasi persuasif. Daftar sekarang, kuota terbatas."
+>
+  {/* ===================== HERO ===================== */}
+  <header class="px-5 pb-8 pt-7 text-center">
+    <span class="pill">SABTU, 5 JULI · 19.00 WIB</span>
+    <h1 class="mt-4 text-3xl font-extrabold leading-tight tracking-tight">
+      TINGKATKAN<br />
+      <span class="text-[#ffd56a]">CLOSING RATE</span><br />
+      DALAM 2 JAM
+    </h1>
+    <p class="mx-auto mt-3 max-w-[34ch] text-sm text-[#bdeedd]">
+      Webinar intensif <b>Speak to Sell</b> — kuasai seni berbicara yang
+      mengubah obrolan biasa menjadi penjualan.
+    </p>
+
+    <div class="mt-6 overflow-hidden rounded-2xl ring-1 ring-[#19e08a]/30">
+      <Image src={imgSpeak} alt="Speaker webinar" widths={[480]} sizes="480px" />
+    </div>
+
+    <a href="#daftar" class="cta mt-6">DAFTAR SEKARANG</a>
+    <p class="mt-2 text-xs text-[#8fd0bd]">Kuota terbatas • Gratis untuk 100 pendaftar pertama</p>
+  </header>
+
+  {/* ===================== MASALAH ===================== */}
+  <section class="section">
+    <h2 class="section-title">Sering ngobrol, tapi gagal closing?</h2>
+    <p class="mt-3 text-sm leading-relaxed text-[#bdeedd]">
+      Banyak orang punya produk bagus tapi kesulitan meyakinkan calon pembeli.
+      Masalahnya bukan produknya — tapi <b>cara menyampaikannya</b>. Di webinar
+      ini Anda belajar struktur komunikasi yang terbukti menaikkan konversi.
+    </p>
+    <div class="mt-5 overflow-hidden rounded-2xl">
+      <Image src={imgSpeakman} alt="Presentasi" widths={[440]} sizes="440px" />
+    </div>
+  </section>
+
+  {/* ===================== BENEFIT ===================== */}
+  <section class="section">
+    <h2 class="section-title">Yang akan Anda kuasai</h2>
+    <ul class="mt-4 space-y-3">
+      {benefits.map((b) => (
+        <li class="flex items-start gap-3 text-sm text-[#e9fff6]">
+          <span class="check">✓</span>
+          <span>{b}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="mt-6 overflow-hidden rounded-2xl">
+      <Image src={imgTwospeaks} alt="Diskusi penjualan" widths={[440]} sizes="440px" />
+    </div>
+  </section>
+
+  {/* ===================== COACH ===================== */}
+  <section class="section text-center">
+    <h2 class="section-title">Meet Our Coach</h2>
+    <div class="mx-auto mt-4 h-36 w-36 overflow-hidden rounded-full ring-4 ring-[#19e08a]/40">
+      <Image src={imgSpeakwoman} alt="Coach" widths={[200]} sizes="200px" class="h-full w-full object-cover" />
+    </div>
+    <h3 class="mt-4 text-lg font-bold">Nama Coach</h3>
+    <p class="text-xs uppercase tracking-widest text-[#19e08a]">Sales & Public Speaking Trainer</p>
+    <p class="mx-auto mt-3 max-w-[36ch] text-sm text-[#bdeedd]">
+      Berpengalaman melatih ribuan profesional dan pemilik bisnis untuk
+      meningkatkan kemampuan menjual lewat komunikasi yang persuasif.
+    </p>
+  </section>
+
+  {/* ===================== CLIENTS ===================== */}
+  <section class="section">
+    <h2 class="section-title text-center">Our Clients</h2>
+    <div class="mt-5 grid grid-cols-3 gap-3">
+      {clients.map((c) => (
+        <div class="grid h-14 place-items-center rounded-lg bg-white/90 text-xs font-semibold text-[#072e28]">
+          {c}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* ===================== WEBINAR INFO ===================== */}
+  <section class="section">
+    <div class="overflow-hidden rounded-2xl">
+      <Image src={imgSpeaking} alt="Webinar Speak to Sell" widths={[440]} sizes="440px" />
+    </div>
+    <h2 class="section-title mt-5">Webinar Speak to Sell</h2>
+    <p class="mt-3 text-sm leading-relaxed text-[#bdeedd]">
+      Sesi praktis 2 jam: dari membuka percakapan, membangun kepercayaan,
+      hingga teknik closing. Dilengkapi contoh nyata dan latihan langsung.
+    </p>
+  </section>
+
+  {/* ===================== PRICING ===================== */}
+  <section class="section" id="harga">
+    <h2 class="section-title text-center">Pilih Paket Anda</h2>
+
+    <div class="card mt-5">
+      <p class="text-xs font-bold uppercase tracking-widest text-[#8fd0bd]">Basic</p>
+      <p class="mt-1 text-2xl font-extrabold">Rp149.000</p>
+      <ul class="mt-4 space-y-2">
+        {basic.map((f) => (
+          <li class="flex items-start gap-2 text-sm"><span class="check">✓</span>{f}</li>
+        ))}
+      </ul>
+      <a href="#daftar" class="cta cta--outline mt-5">Pilih Basic</a>
+    </div>
+
+    <div class="card card--featured mt-4">
+      <span class="ribbon">TERLARIS</span>
+      <p class="text-xs font-bold uppercase tracking-widest text-[#0a3a32]">Premium</p>
+      <p class="mt-1 text-2xl font-extrabold text-[#072e28]">Rp349.000</p>
+      <ul class="mt-4 space-y-2">
+        {premium.map((f) => (
+          <li class="flex items-start gap-2 text-sm text-[#0a3a32]"><span class="check check--dark">✓</span>{f}</li>
+        ))}
+      </ul>
+      <a href="#daftar" class="cta mt-5">Pilih Premium</a>
+    </div>
+  </section>
+
+  {/* ===================== FAQ ===================== */}
+  <section class="section" id="faq">
+    <h2 class="section-title text-center">Pertanyaan yang Sering Diajukan</h2>
+    <div class="mt-5 space-y-3">
+      {faqs.map((item) => (
+        <details class="faq">
+          <summary class="faq__q">
+            <span>{item.q}</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__a">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  {/* ===================== FORM PENDAFTARAN ===================== */}
+  <section class="section" id="daftar">
+    <div class="card">
+      <h2 class="text-center text-xl font-extrabold">Daftar Sekarang</h2>
+      <p class="mt-1 text-center text-xs text-[#8fd0bd]">Isi data Anda, tim kami akan menghubungi via WhatsApp.</p>
+
+      {/* Form statis. TODO marketing: arahkan action ke endpoint CRM/Sheets,
+          atau biarkan tombol WA di bawah sebagai kanal utama. */}
+      <form action="#" method="post" class="mt-5 space-y-3">
+        <input class="field" type="text" name="nama" placeholder="Nama lengkap" required />
+        <input class="field" type="email" name="email" placeholder="Email" required />
+        <input class="field" type="tel" name="whatsapp" placeholder="No. WhatsApp" required />
+        <button type="submit" class="cta w-full">Kirim Pendaftaran</button>
+      </form>
+
+      <div class="my-4 flex items-center gap-3 text-xs text-[#6fb8a4]">
+        <span class="h-px flex-1 bg-white/15"></span>atau<span class="h-px flex-1 bg-white/15"></span>
+      </div>
+      <a href={WA} class="cta cta--wa w-full">Daftar via WhatsApp</a>
+    </div>
+  </section>
+
+  {/* ===================== FOOTER ===================== */}
+  <footer class="px-5 pb-10 pt-6 text-center text-xs text-[#6fb8a4]">
+    © 2026 Speak to Sell. Semua hak dilindungi.
+  </footer>
+
+  <style>
+    .pill {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04201c;
+      background: #19e08a;
+    }
+    .section {
+      padding: 1.75rem 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .check {
+      flex: none;
+      display: inline-grid;
+      place-items: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 999px;
+      background: #19e08a;
+      color: #04201c;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .check--dark { background: #0a3a32; color: #19e08a; }
+    .cta {
+      display: block;
+      width: max-content;
+      margin-inline: auto;
+      padding: 0.95rem 2rem;
+      border-radius: 999px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      color: #04201c;
+      background: linear-gradient(180deg, #25f29a, #12c97e);
+      box-shadow: 0 10px 24px -8px rgba(25, 224, 138, 0.6);
+    }
+    .cta--outline {
+      background: transparent;
+      color: #19e08a;
+      border: 2px solid #19e08a;
+      box-shadow: none;
+    }
+    .cta--wa { background: linear-gradient(180deg, #2bd96b, #1bb457); }
+    .card {
+      position: relative;
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.25rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .card--featured {
+      background: linear-gradient(180deg, #d7fff0, #aef3d8);
+      color: #0a3a32;
+      border: none;
+    }
+    .ribbon {
+      position: absolute;
+      top: -0.6rem;
+      right: 1rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #04201c;
+      background: #ffd56a;
+    }
+    .field {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e9fff6;
+      font-size: 0.9rem;
+    }
+    .field::placeholder { color: #7fbfac; }
+    .field:focus { outline: 2px solid #19e08a; outline-offset: 1px; }
+
+    .faq {
+      border-radius: 0.85rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+    .faq__q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.95rem 1.1rem;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #e9fff6;
+    }
+    .faq__q::-webkit-details-marker { display: none; }
+    .faq__icon {
+      flex: none;
+      display: inline-grid;
+      place-items: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      background: #19e08a;
+      color: #04201c;
+      font-weight: 800;
+      transition: transform 0.2s ease;
+    }
+    .faq[open] .faq__icon { transform: rotate(45deg); }
+    .faq__a {
+      padding: 0 1.1rem 1.05rem;
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #bdeedd;
+    }
+  </style>
+</LandingLayout>
