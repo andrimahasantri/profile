@@ -2,6 +2,8 @@
 
 [![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC_BY--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nd/4.0/)
 
+> 📄 Landing page iklan statis (`/landing-page`): lihat [`LANDING_PAGE.md`](./LANDING_PAGE.md).
+
 
 ## Clone this repo or deploy to netlify
 
