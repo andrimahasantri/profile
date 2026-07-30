@@ -30,6 +30,13 @@ const config = {
   },
   collections: [page, post, settings],
 };
+
+const homeIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></g></svg>`;
+const pageIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"><path stroke-linecap="round" d="M7 21a2 2 0 0 1-2-2V3h9l5 5v11a2 2 0 0 1-2 2H7Z"/><path d="M13 3v6h6"/><path stroke-linecap="round" d="M9 13h6m-6 4h6"/></g></svg>`;
+const newsIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3 4v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8h-4"/><path d="M3 4h14v14a2 2 0 0 0 2 2v0M13 8H7m6 4H9"/></g></svg>`;
+const mediaIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m4.5 17 4.5-4.5 3 3 3.5-4 5 5.5"/></g></svg>`;
+const settingsIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none"><circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><path fill="currentColor" d="m5.399 5.88l.375-.65a.75.75 0 0 0-.925.14l.55.51ZM3.4 9.344l-.717-.222a.75.75 0 0 0 .342.871l.375-.65Zm-.002 5.311l-.375-.65a.75.75 0 0 0-.341.872l.716-.222Zm2 3.464l-.55.51a.75.75 0 0 0 .925.14l-.375-.65Zm4.6 2.655h-.75c0 .35.243.653.584.731l.167-.731Zm4.001.002l.167.732a.75.75 0 0 0 .583-.732H14ZM18.6 18.12l-.375.65a.75.75 0 0 0 .925-.14l-.55-.51Zm1.998-3.466l.717.222a.75.75 0 0 0-.342-.871l-.375.65Zm.002-5.311l.375.65a.75.75 0 0 0 .341-.872l-.716.222Zm-2-3.465l.55-.509a.75.75 0 0 0-.925-.14l.375.65ZM14 3.225h.75a.75.75 0 0 0-.583-.731L14 3.225Zm-4-.002l-.167-.732a.75.75 0 0 0-.583.732H10Zm4 1.849h-.75h.75Zm5 8.66l-.375.65l.375-.65Zm-2 3.464l-.375.65l.375-.65ZM5 13.732l.375.65l-.375-.65Zm2-6.928l-.375.65l.375-.65ZM4.117 9.566a8.24 8.24 0 0 1 1.831-3.177l-1.1-1.02a9.74 9.74 0 0 0-2.164 3.754l1.433.443Zm.738 6.559a8.279 8.279 0 0 1-.74-1.69l-1.433.443a9.78 9.78 0 0 0 .874 1.997l1.3-.75Zm1.094 1.486a8.28 8.28 0 0 1-1.094-1.486l-1.299.75a9.78 9.78 0 0 0 1.292 1.755l1.101-1.019Zm7.884 2.435a8.24 8.24 0 0 1-3.666-.002l-.334 1.462a9.741 9.741 0 0 0 4.334.003l-.334-1.463Zm6.05-5.612a8.241 8.241 0 0 1-1.831 3.177l1.1 1.02a9.74 9.74 0 0 0 2.164-3.755l-1.433-.442Zm-.738-6.559c.315.547.56 1.113.74 1.69l1.432-.443a9.778 9.778 0 0 0-.873-1.997l-1.3.75ZM18.05 6.389c.41.443.778.94 1.094 1.486l1.299-.75A9.778 9.778 0 0 0 19.15 5.37l-1.1 1.019Zm-7.884-2.435a8.24 8.24 0 0 1 3.666.002l.334-1.462a9.74 9.74 0 0 0-4.334-.003l.334 1.463Zm.583 1.118v-1.85h-1.5v1.85h1.5ZM7.375 6.154L5.774 5.23l-.75 1.299l1.6.924l.75-1.299Zm-2.75 6.928l-1.601.925l.75 1.299l1.6-.924l-.75-1.3Zm.75-3.464l-1.6-.923l-.75 1.3l1.6.923l.75-1.3Zm5.375 11.157v-1.847h-1.5v1.847h1.5Zm-4.125-4.228l-1.601.924l.75 1.3l1.6-.925l-.75-1.3Zm12.351.924l-1.601-.924l-.75 1.299l1.601.924l.75-1.299Zm-4.226 3.306v-1.849h-1.5v1.85h1.5Zm5.476-12.083l-1.601.924l.75 1.3l1.601-.925l-.75-1.299Zm.748 5.312l-1.599-.924l-.75 1.3l1.6.923l.75-1.3ZM14.75 5.072V3.225h-1.5v1.847h1.5Zm3.476.158l-1.601.924l.75 1.3l1.601-.925l-.75-1.3Zm-4.976-.158c0 2.117 2.292 3.44 4.125 2.381l-.75-1.299a1.25 1.25 0 0 1-1.875-1.082h-1.5Zm5.375 4.546c-1.833 1.059-1.833 3.705 0 4.764l.75-1.3a1.25 1.25 0 0 1 0-2.165l-.75-1.299Zm-1.25 6.929c-1.833-1.059-4.125.264-4.125 2.381h1.5a1.25 1.25 0 0 1 1.875-1.082l.75-1.3Zm-6.625 2.381c0-2.117-2.292-3.44-4.125-2.381l.75 1.299a1.25 1.25 0 0 1 1.875 1.082h1.5Zm-5.375-4.546c1.833-1.059 1.833-3.705 0-4.764l-.75 1.3a1.25 1.25 0 0 1 0 2.165l.75 1.299Zm3.875-9.31a1.25 1.25 0 0 1-1.875 1.082l-.75 1.3c1.833 1.058 4.125-.265 4.125-2.382h-1.5Z"/></g></svg>`;
+const usersIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.038 2.462-5.5 5.5-5.5s5.5 2.462 5.5 5.5"/><path d="M16 8.5a2.5 2.5 0 1 0 0-5"/><path d="M18.5 20c0-2.485-1.5-4.5-3.5-5"/></g></svg>`;
 ---
 
 <!doctype html>
@@ -87,9 +94,234 @@ const config = {
           border-bottom: 5px dotted rgba(59, 130, 246, 0.5);
         }
       }
+
+      /* CUSTOM SIDEBAR (Menu Utama / Admin / Data Master) */
+      #custom-sidebar,
+      .custom-panel {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        .CMS_Sidebar_root {
+          display: none !important;
+        }
+
+        .CMS_MainView_body.CMS_MainView_show-left-nav {
+          margin-left: 256px !important;
+        }
+
+        body.is-custom-route .CMS_MainView_root {
+          display: none !important;
+        }
+
+        #custom-sidebar {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 64px;
+          left: 0;
+          bottom: 0;
+          width: 256px;
+          overflow-y: auto;
+          z-index: 10;
+          padding: 1rem 0.75rem;
+          background: var(--background-main);
+          border-right: 1px solid var(--background-divider);
+        }
+
+        .custom-panel.is-visible {
+          display: block;
+          position: fixed;
+          top: 64px;
+          left: 256px;
+          right: 0;
+          bottom: 0;
+          overflow-y: auto;
+          z-index: 10;
+          padding: 1.5rem;
+          background: var(--background-dark);
+        }
+      }
+
+      .custom-sidebar-group + .custom-sidebar-group {
+        margin-top: 1.5rem;
+      }
+
+      .custom-sidebar-group-label {
+        margin: 0 0 0.5rem;
+        padding: 0 0.75rem;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .custom-sidebar-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+      }
+
+      .custom-sidebar-link:hover {
+        background: var(--background-light);
+      }
+
+      .custom-sidebar-link.is-active {
+        background: var(--primary-main);
+        color: var(--primary-contrast-color);
+      }
+
+      .custom-sidebar-icon {
+        display: inline-flex;
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .custom-sidebar-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .custom-panel h1 {
+        margin: 0 0 0.25rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .custom-panel .custom-panel-subtitle {
+        margin: 0 0 1.5rem;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .custom-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .custom-stat-card {
+        background: var(--background-main);
+        border: 1px solid var(--background-divider);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+      }
+
+      .custom-stat-card .custom-stat-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+      }
+
+      .custom-stat-card .custom-stat-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .custom-empty-state {
+        background: var(--background-main);
+        border: 1px dashed var(--background-divider);
+        border-radius: 0.75rem;
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        color: var(--text-secondary);
+      }
+
+      .custom-panel-note {
+        margin-top: 1rem;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+      }
     </style>
   </head>
   <body>
+    <nav id="custom-sidebar" aria-label="Sidebar navigasi utama">
+      <div class="custom-sidebar-group">
+        <p class="custom-sidebar-group-label">Menu Utama</p>
+        <a class="custom-sidebar-link" data-route="beranda" href="#/beranda">
+          <span class="custom-sidebar-icon" set:html={homeIconSvg} />
+          <span>Beranda</span>
+        </a>
+      </div>
+
+      <div class="custom-sidebar-group">
+        <p class="custom-sidebar-group-label">Admin</p>
+        <a class="custom-sidebar-link" data-route="collections/page" href="#/collections/page">
+          <span class="custom-sidebar-icon" set:html={pageIconSvg} />
+          <span>Pages</span>
+        </a>
+        <a class="custom-sidebar-link" data-route="collections/posts" href="#/collections/posts">
+          <span class="custom-sidebar-icon" set:html={newsIconSvg} />
+          <span>News</span>
+        </a>
+        <a class="custom-sidebar-link" data-route="media" href="#/media">
+          <span class="custom-sidebar-icon" set:html={mediaIconSvg} />
+          <span>Media</span>
+        </a>
+        <a class="custom-sidebar-link" data-route="collections/config" href="#/collections/config">
+          <span class="custom-sidebar-icon" set:html={settingsIconSvg} />
+          <span>Settings</span>
+        </a>
+      </div>
+
+      <div class="custom-sidebar-group">
+        <p class="custom-sidebar-group-label">Data Master</p>
+        <a class="custom-sidebar-link" data-route="data-pendaftar" href="#/data-pendaftar">
+          <span class="custom-sidebar-icon" set:html={usersIconSvg} />
+          <span>Data Pendaftar</span>
+        </a>
+      </div>
+    </nav>
+
+    <div id="custom-panel-beranda" class="custom-panel">
+      <h1>Beranda</h1>
+      <p class="custom-panel-subtitle">Ringkasan aktivitas situs.</p>
+      <div class="custom-stat-grid">
+        <div class="custom-stat-card">
+          <span class="custom-stat-label">Total Pendaftar</span>
+          <span class="custom-stat-value">&mdash;</span>
+        </div>
+        <div class="custom-stat-card">
+          <span class="custom-stat-label">Halaman Aktif</span>
+          <span class="custom-stat-value">&mdash;</span>
+        </div>
+        <div class="custom-stat-card">
+          <span class="custom-stat-label">Artikel Dipublikasikan</span>
+          <span class="custom-stat-value">&mdash;</span>
+        </div>
+        <div class="custom-stat-card">
+          <span class="custom-stat-label">Pesan Masuk</span>
+          <span class="custom-stat-value">&mdash;</span>
+        </div>
+      </div>
+      <p class="custom-panel-note">
+        Visualisasi data belum terhubung ke sumber data. Statistik di atas akan terisi setelah
+        integrasi data selesai.
+      </p>
+    </div>
+
+    <div id="custom-panel-data-pendaftar" class="custom-panel">
+      <h1>Data Pendaftar</h1>
+      <p class="custom-panel-subtitle">Daftar pendaftar yang masuk melalui formulir situs.</p>
+      <div class="custom-empty-state">Belum ada data pendaftar.</div>
+      <p class="custom-panel-note">
+        Saat ini pengajuan formulir diteruskan ke Slack dan belum disimpan di penyimpanan data.
+      </p>
+    </div>
+
     <script
       is:inline
       src={`https://unpkg.com/@staticcms/app@^${cmsVersion}/dist/static-cms-app.js`}
@@ -113,6 +345,40 @@ const config = {
       CMS.registerIcon("news", () => h("img", { src: newsIcon.src }));
       CMS.registerIcon("page", () => h("img", { src: pageIcon.src }));
       CMS.registerIcon("settings", () => h("img", { src: settingsIcon.src }));
+    </script>
+    <script is:inline>
+      (function () {
+        var customRoutes = ["beranda", "data-pendaftar"];
+
+        function currentRoute() {
+          return (location.hash || "").replace(/^#\/?/, "").replace(/\/$/, "");
+        }
+
+        function syncSidebar() {
+          var route = currentRoute();
+
+          document.querySelectorAll("#custom-sidebar .custom-sidebar-link").forEach(function (link) {
+            var linkRoute = link.dataset.route;
+            var isActive = route === linkRoute || route.indexOf(linkRoute + "/") === 0;
+            link.classList.toggle("is-active", isActive);
+          });
+
+          var isCustomRoute = customRoutes.indexOf(route) !== -1;
+          document.body.classList.toggle("is-custom-route", isCustomRoute);
+
+          document.querySelectorAll(".custom-panel").forEach(function (panel) {
+            panel.classList.remove("is-visible");
+          });
+          if (isCustomRoute) {
+            var panel = document.getElementById("custom-panel-" + route);
+            if (panel) panel.classList.add("is-visible");
+          }
+        }
+
+        window.addEventListener("hashchange", syncSidebar);
+        document.addEventListener("DOMContentLoaded", syncSidebar);
+        syncSidebar();
+      })();
     </script>
   </body>
 </html>
